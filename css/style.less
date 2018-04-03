@@ -1,0 +1,546 @@
+@import "animate.min.less";
+@import "swiper.min.less";
+
+html{
+    font-size: 100px; /*640px:rem=100px*/
+}
+html,body{
+    height: 100%;
+    overflow: hidden;
+    background: #f4f4f4;
+    z-index: -4;
+    position: relative;
+       
+}
+.mainBox{
+    margin: 0 auto;
+    max-width: 640px;
+    height: 100%;
+    background: #fff;
+    overflow: hidden;
+    position: relative;
+    z-index: -3;
+}
+.loadingBox,.phoneBox,.messageBox,.cubeBox,.detailBox{
+    display:none;
+    position:relative;
+    height:100%;
+    overflow: hidden;
+}
+
+.loadingBox{
+// display: block;
+   background: #000;
+   
+   .title{
+       position: absolute;
+       top:50%;
+       left: 0;
+       margin-top:unit((-1.4/2)+(-1.5),rem);
+       width: 100%;
+       height: 1.4rem;
+       color: #fff;
+       text-align: center;
+       letter-spacing: .04rem;
+       
+       h1{
+           line-height: .75rem;
+           font-size: .5rem;
+       }
+       h2{
+           
+           line-height: .45rem;
+           font-size: .26rem;
+       }
+       
+   }
+   
+   .progress{
+       @w:4.6;
+       @h:.3;
+       position: absolute;
+       top:50%;
+       left: 50%;
+       margin-left: unit(-@w/2,rem);
+       margin-top: unit((-@h/2)+1,rem);
+       width:unit(@w,rem);
+       height:unit(@h,rem);
+       background: #fff;
+       border-radius: unit(@h/2,rem);
+       
+       .run{
+           position: absolute;
+           top:0;
+           left: 0;
+           width:20%;
+           height: unit(@h,rem);
+           border-radius: unit(@h/2,rem);
+           
+           transition: 0.3s; //在JS中控制width变化的时候有一个些许的动画
+           
+           background: -webkit-linear-gradient(left bottom,#74c274 0%,#74c274 25%,#5cb85c 25%,#5cb85c 50%,#74c274 50%,#74c274 75%,#5cb85c 75%,#5cb85c 100%); 
+           background:linear-gradient(left bottom,#74c274 0%,#74c274 25%,#5cb85c 25%,#5cb85c 50%,#74c274 50%,#74c274 75%,#5cb85c 75%,#5cb85c 100%);   
+           background-size: unit(@h,rem) unit(@h,rem);
+           
+           -webkit-animation: loadingMove 0.5s linear infinite both;
+           animation: loadingMove 0.5s linear infinite both;
+       }
+   }
+    
+}
+@-webkit-keyframes loadingMove{
+    0%{
+        background-position: 0 0;
+    }
+    100%{
+        background-position: 0 -.3rem;
+    }    
+}
+
+@keyframes loadingMove{
+    0%{
+        background-position: 0 0;
+    }
+    100%{
+        background-position: 0 -.3rem;
+    }    
+}
+
+/*------PHONE-----*/
+.phoneBox{
+    background: url(../img/zf_phoneBg.jpg) no-repeat;
+    background-size: cover;
+    z-index: -2;
+   
+    
+    .header{
+        position: absolute;
+        top:.5rem;
+        left: 50%;
+        margin-left:unit(-2.62/2,rem) ;
+        width:2.62rem;
+        .logo{
+            display: block;
+            width: 100%;
+            height: 1.25rem;
+        }
+        .time{
+            display:none;
+            margin-top: .1rem;
+            line-height: .3rem;
+            text-align: center;
+            color: #fff;
+            font-size: .3rem;
+            letter-spacing: .05rem;
+        }
+    }
+    .listen{
+        position: absolute;
+        bottom: .3rem;
+        left: 50%;
+        margin-left: unit(-5.2/2,rem);
+        width: 5.2rem;
+        height: 3.6rem;
+        background: url(../img/zf_phoneListen.png) no-repeat;
+        background-size: 100% 100%; 
+        
+        
+        .touch,.move{
+            position: absolute;
+            right: -.06rem;
+            bottom: .48rem;
+            z-index: 10;
+            width: 1.6rem;
+            height: 1.6rem;            
+            
+        }   
+        .move{
+            box-sizing: border-box;
+            -moz-box-sizing: border-box;
+            border:0.03rem solid #0F0;
+            border-radius: 50%;
+            z-index:-1;
+            animation: listenTouchMove 1s linear infinite both; 
+        }  
+    }  
+    
+   .detail{
+       position: absolute;
+       bottom: .3rem;
+       left: 50%;
+       margin-left: unit(-5.2/2,rem);
+       width: 5.2rem;
+       height: 6.59rem;
+       background: url("../img/zf_phoneDetail.png") no-repeat;
+       background-size: 100% 100%;
+       
+       //init position
+       transition: .3s;
+       transform: translateY(110%);
+       
+       .touch{
+           position: absolute;
+           bottom: .28rem;
+           left: 50%;
+           margin-left: unit(-1.6/2,rem);
+           z-index: 10;
+           width: 1.6rem;
+           height: 1.6rem;  
+           
+       }
+       
+   }
+}
+
+@keyframes listenTouchMove{
+    0%{
+        transform: scale(1.2);
+        
+    }
+    100%{
+       transform: scale(0);
+       
+    }
+}
+
+
+/*------messageBox------*/
+.messageBox{
+    background: #eaeaea;
+    .talkBox{
+        margin-top:.2rem;
+        transition: .3s all;
+        
+        li{
+            position: relative;
+            min-width: 2.4rem;
+            max-width: 3.6rem;
+            padding: .25rem;
+            margin-bottom: .4rem;
+            line-height: .4rem;
+            font-size: .26rem;
+            border-radius: .1rem;
+            
+            opacity: 0;
+            transition: .3s all;
+            transform: translateY(1rem);
+            
+                                
+            img{
+                    position: absolute;
+                    top:0;
+                    width: .82rem;
+                    height: .82rem;
+                    border-radius: 50%;
+                }
+             i{
+                 position: absolute;
+                 top:.2rem;
+                 width: .1rem;
+                 height: .2rem;
+             }
+            &.student{
+                float: left;
+                margin-left:1.25rem;
+                background: #fff;
+                border: 1px solid #cacaca;
+                img{
+                    left: -1rem;
+                }
+                i{
+                    left: -.1rem;
+                    background:url(../img/zf_messageArrow1.png) no-repeat;
+                    background-size: 100% 100%;
+                }
+            }
+            &.teacher{
+                float: right;
+                margin-right: 1.25rem;
+                background: #A2e45c;
+                border: 1px solid #87c841;
+                img{
+                    right: -1rem;
+                }
+                i{
+                    right: -.1rem;
+                    background:url(../img/zf_messageArrow2.png) no-repeat;
+                    background-size: 100% 100%;
+                }
+            }
+
+
+        }       
+    }
+    
+    .keyBord{
+        position: absolute;
+        left: 0;
+        bottom: -.54rem;
+        width: 100%;
+        height: 5.16rem;
+        background: url(../img/zf_messageKeyboard.png) no-repeat;
+        background-size: 100% 100%;
+        
+        transition: .3s all;
+        transform: translateY(3.7rem);
+        
+        span{
+            position: absolute;
+            top:.35rem;
+            left: .9rem;
+            width: 4rem;
+            height: .4rem;
+            line-height: .4rem;
+            font-size: .25rem;
+            overflow: hidden;
+            display: none;
+        }
+        .submit{
+            position: absolute;
+            right: .1rem;
+            bottom: .6rem;
+            width: 1.47rem;
+            height: .74rem;
+            background: url(../img/zf_messageChat.png) no-repeat;
+            background-size: 100% 100%;
+            display: none;
+        }
+        
+        
+    }
+}
+
+/*---------cube------------*/
+
+.cubeBox{
+    background: url(../img/zf_cubeBg.jpg) no-repeat;
+    background-size: cover;
+    
+    .tip{
+        position: absolute;
+        bottom:.5rem;
+        left: 50%;
+        margin-left: unit(-3.94/2,rem);
+        width: 3.94rem;
+        height: .44rem;
+    }
+    .box{
+        position: absolute;
+        top:50%;
+        left:50%;
+        margin:unit(-5.1/2,rem) 0 0 unit(-5.1/2,rem);
+        width: 5.1rem;
+        height: 5.1rem;
+        
+        li{
+            position: absolute;
+            top:0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            
+            img{
+                width: 100%;
+                height: 100%;
+                display: block;
+            }
+        }
+    }
+    
+    /*-------3D-------*/
+   
+   perspective:2000px;
+   
+   .box{
+       transform-style: preserve-3d;
+       transform:scale(0.4) rotateX(-30deg) rotateY(45deg);
+       
+       li{
+           &:nth-child(1){
+               transform: translateZ(2.55rem);
+           }
+            &:nth-child(2){
+               transform: translateZ(-2.55rem) rotateY(180deg);
+           }
+            &:nth-child(3){
+               transform: translateX(-2.55rem) rotateY(-90deg);
+           }
+            &:nth-child(4){
+               transform: translateX(2.55rem) rotateY(-90deg);
+           }
+             &:nth-child(5){
+               transform: translateY(-2.55rem) rotateX(90deg);
+           }
+            &:nth-child(6){
+               transform: translateY(2.55rem) rotateX(-90deg);
+           }
+       }
+   }
+    
+}
+
+/*---DETALL---*/
+.detailBox{
+    .return{
+        width: .64rem;
+        height: .75rem;
+        position: absolute;
+        right: .2rem;
+        top:.2rem;
+        z-index: 99;
+        background: url(../img/zf_return.png) no-repeat;
+        background-size: 100% 100%;
+    }
+   .swiper-container,.swiper-slide{
+       position: relative;
+       height: 100%;
+       overflow: hidden;
+       font-family: "microsoft yahei";
+   } 
+   .page1{
+       perspective: 2000px;
+       dl{
+           position: absolute;
+           top:50%;
+           left: 50%;
+           margin: unit(-6.6/2,rem) 0 0 unit(-5.4/2,rem);
+           width: 5.4rem;
+           height: 6.6rem;
+           transform-style: preserve-3d;
+           dt,dd{
+               box-sizing: border-box;
+               height: .6rem;
+               line-height: .6rem;
+               background: #8FBB4C;
+           }
+           dt{
+               font-size: .4rem;
+               color: yellow;
+               text-align: center;
+           }
+           dd{
+               border-top:.02rem dashed rgba(255,255,255,.3);
+               font-size: 0;
+               em,p{
+                   display: inline-block;
+                   vertical-align: middle;
+                   
+                   position: relative;
+                   z-index: 999; //在折叠翻转的时候，防止新创建的SPAN（为了）把文字内容遮挡上，我们调整一下当前文字区域的层级
+               }
+               em{
+                   margin: 0 .15rem;
+                   width: .36rem;
+                   height: .42rem;
+                   line-height: .42rem;
+                   text-align: center;
+                   color: #fff;
+                   font-size: .2rem;
+                   font-style: normal;
+                   background: url(../img/zf_outline.png) no-repeat;
+                   background-size: 100% 100%; 
+               }
+               p{
+                   width: 4.74rem;
+                   line-height: .6rem;
+                   font-size: .28rem;   
+                   
+                   text-overflow: ellipsis;
+                   white-space: nowrap;
+                   overflow: hidden;//前提条件：当前盒子具体的宽度（100%）也可以
+               }
+           }
+           
+       }
+   }
+   .page2{
+     background: #fff9c1;  
+     h2{
+         position: absolute;
+         left: 0;
+         top:.8rem;
+         width: 100%;
+         line-height: .9rem;
+         text-align: center;
+         font-size: .6rem;
+         font-weight: normal;
+     }
+     img{
+         position: absolute;
+         top:50%;
+         left: 50%;
+         margin: -.5rem 0 0 -.5rem;
+         width: 1rem;
+         height: 1rem;
+ 
+         
+         //&:nth-child(1){} //.page2 img:nth-child(1) 获取page2下的第一个子元素（并且第一个子元素的标签需要是IMG）
+        //&:nth-of-type(1)
+         &:nth-last-of-type(1){
+             margin:unit(-1.7/2,rem) 0 0 unit(-1.32/2,rem);
+             width: 1.32rem;
+             height: 1.7rem;
+         }   //首先获取page2中所有的IMG，然后在获取所有IMG中的第一个
+     }
+     h2,img{
+         opacity: 0;
+         
+         &:not(:nth-last-of-type(1)){
+             transition: .3s; 
+         }
+     }
+     
+   }
+   #page2{
+       h2{
+           animation: bounceInLeft 1s both;
+       }
+       img:nth-last-of-type(1){
+           animation: shake 1s both;
+       }
+       img{
+           &:not(:nth-last-of-type(1)){
+
+             opacity: 1;
+             animation: tada 1s .3s infinite;
+           }
+           &:nth-of-type(1){
+             margin-top: -2.9rem;
+           }
+           &:nth-of-type(2){
+             margin-top: -1.7rem;
+             margin-left: 1.5rem;
+           }
+           &:nth-of-type(3){
+             margin-top: .7rem;
+             margin-left: 1.5rem;
+           }
+           &:nth-of-type(4){
+             margin-top: 1.9rem;
+           }
+           &:nth-of-type(5){
+             margin-top: .7rem;
+             margin-left: -2.5rem;
+           }
+            &:nth-of-type(6){
+             margin-top: -1.7rem;
+             margin-left: -2.5rem;
+           }
+       }
+
+       
+   }
+   .page3{
+       background: #e45454;
+   }
+   .page4{
+       background: #FACA71;
+   }
+   .page5{
+       background: #FBFFE8;
+   }
+   .page6{
+       background: #5975ff;
+   }
+   
+}

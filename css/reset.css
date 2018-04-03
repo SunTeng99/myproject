@@ -1,0 +1,83 @@
+/* 濞撳懘娅庨崘鍛樆鏉堢绐� */
+body, h1, h2, h3, h4, h5, h6, hr, p, blockquote, /* structural elements 缂佹挻鐎崗鍐 */
+dl, dt, dd, ul, ol, li, /* list elements 閸掓銆冮崗鍐 */
+pre, /* text formatting elements 閺傚洦婀伴弽鐓庣础閸忓啰绀� */ button, input, textarea, /* form elements 鐞涖劌宕熼崗鍐 */
+th, td { /* table elements 鐞涖劍鐗搁崗鍐 */
+    margin: 0;
+    padding: 0;
+}
+
+h1 { font-size: 18px; /* 18px / 12px = 1.5 */ }
+h2 { font-size: 16px; }
+h3 { font-size: 14px; }
+h4, h5, h6 { font-size: 100%; }
+
+address, cite, dfn, em, var { font-style: normal; } /* 鐏忓棙鏋╂担鎾村濮濓拷 */
+code, kbd, pre, samp, tt { font-family: "Courier New", Courier, monospace; } /* 缂佺喍绔寸粵澶婎啍鐎涙ぞ缍� */
+small { font-size: 12px; } /* 鐏忓繋绨� 12px 閻ㄥ嫪鑵戦弬鍥х发闂呴箖妲勭拠浼欑礉鐠侊拷 small 濮濓絽鐖堕崠锟� */
+
+/* 闁插秶鐤嗛崚妤勩�冮崗鍐 */
+ul, ol { list-style: none; }
+
+/* 闁插秶鐤嗛弬鍥ㄦ拱閺嶇厧绱￠崗鍐 */
+a { text-decoration: none; }
+abbr[title], acronym[title] { /* 濞夘煉绱�1.ie6 娑撳秵鏁幐锟� abbr; 2.鏉╂瑩鍣烽悽銊ょ啊鐏炵偞锟窖囷拷澶嬪缁楋讣绱漣e6 娑撳妫ら弫鍫熺亯 */
+    border-bottom: 1px dotted;
+    cursor: help;
+}
+
+q:before, q:after { content: ''; }
+
+/* 闁插秶鐤嗙悰銊ュ礋閸忓啰绀� */
+img { border: none; } /* img 閹碱叀婧呴敍姘愁唨闁剧偓甯撮柌宀�娈� img 閺冪姾绔熷锟� */
+/* 濞夘煉绱皁ptgroup 閺冪姵纭堕幍鑸殿劀 */
+button, input, select, textarea {
+    font-size: 100%; /* 娴ｅ灝绶辩悰銊ュ礋閸忓啰绀岄崷锟� ie 娑撳鍏樼紒褎澹欑�涙ぞ缍嬫径褍鐨� */
+}
+
+ /*闁插秶鐤嗙悰銊︾壐閸忓啰绀� */
+table {
+    border-collapse: collapse;
+    border-spacing: 0;
+}
+
+/* 闁插秶鐤� hr */
+hr {
+    border: none;
+    height: 1px;
+}
+
+/* 鐠佲晠娼猧e濞村繗顫嶉崳銊╃帛鐠併倓绡冮弰鍓с仛閸ㄥ倻娲垮姘З閺夆槄绱濋梼鍙夘剾閸ョ姵绮撮崝銊︽蒋瀵洝鎹ｉ惃鍕／閻戯拷 */
+html { overflow-y: scroll; }
+
+/* 缁備胶鏁Phone娑撶挅afari閻ㄥ嫬鐡ч崣鐤殰閸斻劏鐨熼弫锟� */
+html {
+    -webkit-text-size-adjust: 100%;
+    -ms-text-size-adjust: 100%;
+}
+
+/* 閸樺娅巌Phone娑擃參绮拋銈囨畱input閺嶅嘲绱� */
+input[type="submit"], input[type="reset"], input[type="button"], input[type="date"],input[type="text"],input[type="number"],input[type="tel"]{
+    -webkit-appearance: none;
+    resize: none;
+}
+
+/* 閸欐牗绉烽柧鐐复妤傛ü瀵�  */
+body, div, ul, li, ol, h1, h2, h3, h4, h5, h6, input, textarea, select, p, dl, dt, dd, a, img, button, form, table, th, tr, td, tbody, article, aside, details, figcaption, figure, footer, header, hgroup, menu, nav, section {
+    -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+}
+textarea{
+    
+    box-shadow:0px 0px 0px rgba(0,0,0,0);
+      -webkit-appearance:none;
+}
+/* 鐠佸墽鐤咹TML5閸忓啰绀屾稉鍝勬健 */
+article, aside, details, figcaption, figure, footer, header, hgroup, menu, nav, section {
+    display: block;
+}
+.clearfix:after{
+	clear: both;
+	display: block;
+	content: "";
+	height: 0;
+}
