@@ -390,9 +390,9 @@ let detailRender=(function(){
 	}
 })();
 
-detailRender.init(1);
+//detailRender.init(1);
 
-//loadingRender.init(); //从头开始运行
+loadingRender.init(); //从头开始运行
 
 /*
  * 基于SWIPER首先每一个页面的动画
